@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="lib/p5.min.js"></script>
+  <script src="lib/p5.dom.min.js"></script>
+  <script src="lib/p5.sound.min.js"></script>
+  <script src="lib/mappa.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+
+  <script src="sketchI0.js"></script>
+  <script src="dna0.js"></script>
+</head>
+
+<body>
+  <h3 class="title">Travelling New York Man</h3>
+  <p class="subtitle">Selected all the places you want to visit and let me plan the shortest route for you.</p>
+  <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">List All</button>
+    <div id="myDropdownWrapper" class="all-buttons">
+      <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+      <div id="myDropdown" class="all-buttons">
+
+      </div>
+    </div>
+  </div>
+  <script>
+    function myFunction() {
+      document.getElementById("myDropdownWrapper").classList.toggle("show");
+      document.getElementById("myDropdown").classList.toggle("show");
+
+    }
+
+    //Search function in dropdown
+    function filterFunction() {
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      div = document.getElementById("myDropdown");
+      a = div.getElementsByTagName("button");
+      for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+          a[i].style.display = "";
+        } else {
+          a[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
